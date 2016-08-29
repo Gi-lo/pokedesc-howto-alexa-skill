@@ -1,0 +1,10 @@
+DescIntent desc {Item}
+DescIntent describe {Item}
+DescIntent what is {Item}
+DescIntent {Item}
+DescIntent tell me about {Item}
+DescIntent tell me {Item}
+DescIntent description for {Item}
+DescIntent who is {Item}
+DescIntent what is in {Item}
+DescIntent what's the description for {Item}
