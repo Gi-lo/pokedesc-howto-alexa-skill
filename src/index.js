@@ -3,7 +3,7 @@
 var Alexa = require('alexa-sdk');
 var APP_ID = undefined; //OPTIONAL: replace with 'amzn1.echo-sdk-ams.app.[your-unique-value-here]';
 var SKILL_NAME = 'Pokemon Description';
-var recipes = require('./recipes');
+var recipes = require('./pokedesc');
 
 exports.handler = function(event, context, callback) {
     var alexa = Alexa.handler(event, context);
@@ -27,9 +27,11 @@ var handlers = {
         if (itemSlot && itemSlot.value) {
             itemName = itemSlot.value.toLowerCase();
         }
-
         var cardTitle = SKILL_NAME + ' - description for ' + itemName;
         var recipe = recipes[itemName];
+
+        console.log("itemName: " + itemName);
+        console.log("itemNameDesc:" + recipes[itemName]);
 
         if (recipe) {
             this.attributes['speechOutput'] = recipe;
@@ -39,7 +41,7 @@ var handlers = {
             var speechOutput = 'I\'m sorry, I currently do not know ';
             var repromptSpeech = 'What else can I help with?';
             if (itemName) {
-                speechOutput = 'the description for ' + itemName + '. ';
+                speechOutput = 'the description for ' + itemName + ' : ' + recipes[itemName];
             } else {
                 speechOutput = 'that description. ';
             }
