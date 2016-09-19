@@ -64,5 +64,4 @@ module.exports = {
     "abra" : "Abra is a Psychic Type Pokemon. It evolves into Kadabra. Abra sleeps for eighteen hours a day. However, it can sense the presence of foes even while it is sleeping. In such a situation, this Pokémon immediately teleports to safety.",
     "kadabra" : "Kadabra is a Psychic Type Pokemon. It evolves into Alakazam. Kadabra emits a peculiar alpha wave if it develops a headache. Only those people with a particularly strong psyche can hope to become a trainer of this Pokémon.",
     "alakazam" : "Alakazam is a Psychic Type Pokemon. It evolves from Kadabra. Alakazam's brain continually grows, making its head far too heavy to support with its neck. This Pokémon holds its head up using its psychokinetic power instead."
-
 };

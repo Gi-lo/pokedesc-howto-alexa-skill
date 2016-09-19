@@ -2,7 +2,7 @@
 Pokemon Species description using Alexa
 
 
-# PkeDesc Skill
+# PokeDesc Skill
 
 ## Description 
 A Pokemon Species description App... An unofficial Pokemon Species description App for Alexa users.

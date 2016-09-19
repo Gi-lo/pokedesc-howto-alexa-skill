@@ -1,7 +1,7 @@
 'use strict';
 
 var Alexa = require('alexa-sdk');
-var APP_ID = undefined; //OPTIONAL: replace with 'amzn1.echo-sdk-ams.app.[your-unique-value-here]';
+var APP_ID = "amzn1.ask.skill.7473720e-ee14-4d3f-8db4-3b1f5e4a9bcb";
 var SKILL_NAME = 'Pokemon Description';
 var recipes = require('./pokedesc');
 
