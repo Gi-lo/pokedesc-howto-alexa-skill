@@ -1,5 +1,6 @@
 DescIntent desc {Item}
 DescIntent describe {Item}
+DescIntent whats {Item}
 DescIntent what is {Item}
 DescIntent {Item}
 DescIntent tell me about {Item}
@@ -8,3 +9,5 @@ DescIntent description for {Item}
 DescIntent who is {Item}
 DescIntent what is in {Item}
 DescIntent what's the description for {Item}
+DescIntent what is the description for {Item}
+DescIntent whats the description for {Item}

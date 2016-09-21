@@ -13,9 +13,9 @@ Shares a Pokemon species description for Pokemon Go Fans and all others who are 
 ## Example Phrases 
 Sample utterances that will help users get started and access skill's core functionality. The wake word in the first phrase. 
 
-1. Alexa, open pokedesc
-2. pokedesc, describe bulbasaur
-3. pokedesc, what's the description for bulbasaur
+1. Alexa, open poke description 
+2. Alexa, ask poke description to describe pikachu
+3. Alexa, ask poke description what is the description for pikachu
 
 ## Download from Amazon Alexa Skill store
 http://alexa.amazon.com/spa/index.html#skills/

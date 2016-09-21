@@ -35,7 +35,7 @@ var handlers = {
 
         if (recipe) {
             this.attributes['speechOutput'] = recipe;
-            this.attributes['repromptSpeech'] = 'Try saying repeat.';
+            this.attributes['repromptSpeech'] = 'What else can I help with ?';
             this.emit(':askWithCard', recipe, this.attributes['repromptSpeech'], cardTitle, recipe);
         } else {
             var speechOutput = 'I\'m sorry, I currently do not know ';
@@ -54,9 +54,9 @@ var handlers = {
         }
     },
     'AMAZON.HelpIntent': function () {
-        this.attributes['speechOutput'] = 'You can ask questions such as, what\'s the description, or, you can say exit... ' +
+        this.attributes['speechOutput'] = 'You can ask questions such as, what\'s the description for fearow, or, you can say exit... ' +
             'Now, what can I help you with?';
-        this.attributes['repromptSpeech'] = 'You can say things like, what\'s the description, or you can say exit...' +
+        this.attributes['repromptSpeech'] = 'You can say things like, what\'s the description for fearow, or you can say exit...' +
             ' Now, what can I help you with?';
         this.emit(':ask', this.attributes['speechOutput'], this.attributes['repromptSpeech'])
     },
