@@ -13,7 +13,9 @@ exports.handler = function(event, context, callback) {
 };
 
 var handlers = {
-    'NewSession': function () {
+    //Use LaunchRequest, instead of NewSession if you want to use the one-shot model
+    //Alexa, ask [my-skill-invocation-name] to (do something)...
+    'LaunchRequest': function () {
         this.attributes['speechOutput'] = 'Welcome to ' + SKILL_NAME + '. You can ask a question like, what\'s the' +
             ' description for Pikachu? ... Now, what can I help you with.';
         // If the user either does not reply to the welcome message or says something that is not
@@ -41,7 +43,7 @@ var handlers = {
             var speechOutput = 'I\'m sorry, I currently do not know ';
             var repromptSpeech = 'What else can I help with?';
             if (itemName) {
-                speechOutput = 'the description for ' + itemName + ' : ' + recipes[itemName];
+                speechOutput = 'the description for ' + itemName;
             } else {
                 speechOutput = 'that description. ';
             }
