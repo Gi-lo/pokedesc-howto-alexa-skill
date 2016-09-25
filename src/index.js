@@ -1,13 +1,13 @@
 'use strict';
 
 var Alexa = require('alexa-sdk');
-var APP_ID = "amzn1.ask.skill.7473720e-ee14-4d3f-8db4-3b1f5e4a9bcb";
-var SKILL_NAME = 'Poke Description';
 var recipes = require('./pokedesc');
+var config = require('./config.js');
 
+var SKILL_NAME = config.skillName;
 exports.handler = function(event, context, callback) {
     var alexa = Alexa.handler(event, context);
-    alexa.APP_ID = APP_ID;
+    alexa.APP_ID = config.appId;
     alexa.registerHandlers(handlers);
     alexa.execute();
 };
@@ -21,7 +21,8 @@ var handlers = {
         // If the user either does not reply to the welcome message or says something that is not
         // understood, they will be prompted again with this text.
         this.attributes['repromptSpeech'] = 'For instructions on what you can say, please say help me.';
-        this.emit(':ask', this.attributes['speechOutput'], this.attributes['repromptSpeech'])
+        this.emit(':ask', this.attributes['speechOutput'], this.attributes['repromptSpeech']);
+        this.emit('SessionEndedRequest');
     },
     'DescIntent': function () {
         var itemSlot = this.event.request.intent.slots.Item;
@@ -36,16 +37,21 @@ var handlers = {
         console.log("itemNameDesc:" + recipes[itemName]);
 
         if (recipe) {
-            this.attributes['speechOutput'] = recipe;
             this.attributes['repromptSpeech'] = 'What else can I help with ?';
-            this.emit(':askWithCard', recipe, this.attributes['repromptSpeech'], cardTitle, recipe);
+            this.attributes['speechOutput'] = recipe + " " + this.attributes['repromptSpeech'];
+            console.log("recipe:" + recipe);
+            console.log("this.attributes['repromptSpeech']:" + this.attributes['repromptSpeech']);
+            console.log("cardTitle:" + JSON.stringify(cardTitle));
+            console.log("recipe:" + recipe);
+            //askWithCard(speechOutput, repromptSpeech, cardTitle, cardContent),
+            this.emit(':askWithCard', this.attributes['speechOutput'], this.attributes['repromptSpeech'], cardTitle, recipe);
         } else {
             var speechOutput = 'I\'m sorry, I currently do not know ';
             var repromptSpeech = 'What else can I help with?';
             if (itemName) {
-                speechOutput = 'the description for ' + itemName;
+                speechOutput = 'the description for ' + itemName + ' is not found. Please try again. You can ask questions such as, what\'s the description for fearow, or, you can say exit...';
             } else {
-                speechOutput = 'that description. ';
+                speechOutput = 'that description is not found. Please try again. You can ask questions such as, what\'s the description for fearow, or, you can say exit...';
             }
             speechOutput += repromptSpeech;
 
